@@ -23,7 +23,7 @@ fn merge_sort(array: &mut [i32]) -> &mut [i32] {
     let &mut left = [mid..];
     let &mut right = [..mid];
     //checks if the array is larger than 2
-    if (array.len()>=2){
+    if array.len()>=2{
         //sets up left and right array
         let &mut left = [mid..];
         let &mut right = [..mid];
@@ -40,7 +40,7 @@ fn merge_sort(array: &mut [i32]) -> &mut [i32] {
     return merge(left,right);
 }
 //merging the lists
-fn merge(left: &mut [i32],right : &mut [i32]) -> &mut [i32]{
+fn merge <'a>(left: &'a mut [i32],right : &'a mut [i32]) -> &'a mut [i32]{
     //creates empty array
     let mergedList : &mut [i32] = &mut [];
     //sets pointers for the lists
@@ -48,11 +48,11 @@ fn merge(left: &mut [i32],right : &mut [i32]) -> &mut [i32]{
     let mut indexRight = 0;
     let mut indexMerged = 0;
     //while pointers are not at the end of the list it will loop
-    while((indexLeft < left.len())||(indexRight < right.len())){
+    while(indexLeft < left.len())||(indexRight < right.len()){
         //checks if both arrays still have unvisited values
-        if((indexLeft < left.len())&&(indexRight < right.len())) {
+        if(indexLeft < left.len())&&(indexRight < right.len()) {
             //checks if the right number is higher
-            if (left[indexLeft] <= right[indexRight]) {
+            if left[indexLeft] <= right[indexRight] {
                 //adds the right lists value to the merged array
                 mergedList[indexRight] = right[indexRight];
                 //increases pointers
@@ -68,7 +68,7 @@ fn merge(left: &mut [i32],right : &mut [i32]) -> &mut [i32]{
             }
         }
         //adds remaining left values
-        else if (indexLeft < left.len()) {
+        else if indexLeft < left.len() {
             //adds the left lists value to the merged array
             mergedList[indexLeft] = right[indexLeft];
             //increases pointers
@@ -76,7 +76,7 @@ fn merge(left: &mut [i32],right : &mut [i32]) -> &mut [i32]{
             indexMerged = indexMerged +1;
         }
             //adds remaining right values
-        else if (indexRight < right.len()) {
+        else if indexRight < right.len() {
             //adds the right lists value to the merged array
             mergedList[indexRight] = right[indexRight];
             //increases pointers
