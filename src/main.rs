@@ -17,11 +17,11 @@ fn main() {
 //start of the mergesort
 //-> &mut [i32] sets function type to &mut [i32]
 fn merge_sort(array: &mut [i32]) -> &mut [i32] {
+    //sets the middle
+    let mid = array.len()/2;
     //sets up left and right array
     let &mut left = [mid..];
     let &mut right = [..mid];
-    //sets the middle
-    let mid = array.len()/2;
     //checks if the array is larger than 2
     if array.len()<=2{
         //returns array if there is one/no values in it
