@@ -6,7 +6,7 @@ fn main() {
     let array : &mut [i32] = &mut [];
     //assigns random numbers to the array
     for z in array{
-        array[z]== rand::random();
+        array[z] == rand::random();
     }
     //outputs unsorted array
     for x in array {
